@@ -1,10 +1,7 @@
 from PIL import Image
 from pillow_heif import register_heif_opener
-import glob
 from pathlib import Path
-from re import search, IGNORECASE
 from os import remove
-import sys
 register_heif_opener()
 
 def convert_files(p, input1, input2):
