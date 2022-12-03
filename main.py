@@ -8,10 +8,16 @@ def convert_files(p, input1, input2):
     p = Path(p)
 
     for imgP in p.rglob('*'+input1):
-        img = Image.open(imgP)
-        img.convert()
-        img.save(imgP.with_suffix(input2))
-        remove(imgP)
+        try:
+            img = Image.open(imgP)
+            img.convert()
+        except:
+            pass
+        try:
+            img.save(imgP.with_suffix(input2))
+            remove(imgP)
+        except:
+            pass
 
 if __name__ == "__main__":
     print("Enter Folder Path of file(s) to convert")
